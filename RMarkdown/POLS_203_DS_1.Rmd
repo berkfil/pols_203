@@ -1,0 +1,79 @@
+---
+title: "POLS 203 DS 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+USING R AS A CALCULATOR
+```{r}
+5 + 8 
+12 - 4
+5 / 3
+6 * 8
+7 ^ 6
+sqrt(16) #sqrt() is a function
+```
+
+OBJECTS
+```{r}
+result <- 4 + 9
+print(result) 
+result
+```
+
+BE CAREFUL!!! OBJECT NAMES ARE SENSITIVE. result and RESULT will not give the same returns
+
+Different types of values as objects
+```{r}
+fruit<-'apple'
+number<-'3' # 3 is not numeric but categorical
+#SOME EXAMPLES
+money<-2500
+sqrt(money)
+money/50
+money*4
+```
+
+class()
+```{r}
+class(money)
+class(fruit)
+class(number)
+c_money <- as.character(money)
+c_fruit <- as.numeric(fruit) #see the mistake in here!!!
+```
+
+VECTORS
+```{r}
+number_apple<-c(3,4,7,5,1)
+number_banana<-c(2,3,1,9,16)
+number_fruit<-c(number_banana,number_apple)
+number_fruit
+length(number_fruit)
+
+#you can do calculations with these vectors since they are numeric
+number_apple_2<-number_apple*2
+number_banana_3<-number_banana*3
+fruit_rate<-number_apple/number_banana #if we want express apples as proportion of bananas
+number_apple[c(1,2)]<-c(1,8) #replacing the values
+number_apple  
+```
+
+INDEXING (to access specific elements)
+```{r}
+number_apple[1]
+number_banana[c(3,5)]
+number_apple[-1] #to delete a value
+```
+
+names()
+```{r}
+names(number_apple) <- c('Monday','Tuesday','Wednesday','Thursday')
+#or
+apple_days <- c('Monday','Tuesday','Wednesday','Thursday')
+names(number_apple) <- apple_days
+number_apple
+```
