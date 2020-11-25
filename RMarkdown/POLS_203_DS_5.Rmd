@@ -1,0 +1,99 @@
+---
+title: "POLS_203_DS_5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+read in data frame: minwage.csv
+```{r}
+
+```
+
+explore your data with str(), head(), rownames(), colnames(), summary()
+```{r}
+
+```
+
+visualize your data (start with fullAfter or any variable you want. You can also use pairs())
+```{r}
+
+```
+
+check if your assumptions about visualization is correct
+```{r}
+
+```
+
+look at the characteristics of your data
+```{r}
+
+```
+
+create a baby data frame with runif()
+```{r}
+
+```
+
+explore your new baby data
+```{r}
+
+```
+
+visualize your new baby data with plot(), boxplot()
+```{r}
+
+```
+
+create another baby data frame and assign column names
+Hint: Assigning less amount of measurements to your vectors might make life easier for you
+```{r}
+
+```
+
+explore your new baby data
+```{r}
+
+```
+
+visualize your new baby data (optional)
+```{r}
+
+```
+
+create a vector with specific mean and sd (set seed for 200)
+```{r}
+
+```
+
+visualize your vector
+```{r}
+
+```
+
+create a plot by using one of the variables from winwage. Assign axis names and color
+```{r}
+
+```
+
+create a data frame by using runif() and visualize it with plot()
+```{r}
+
+```
+
+create another dataset by using rnorm() and set seed for 150. Then visualize it wiht plot()
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
