@@ -1,0 +1,153 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+read in data frame: minwage.csv
+```{r}
+
+```
+
+explore your data 
+```{r}
+str(minwage)
+head(minwage)
+rownames
+colnames
+summary(minwage)
+```
+
+visualize your data (start with fullAfter)
+```{r}
+plot(minwage$fullAfter,type = "l")
+points(minwage$fullAfter)#add points by points() argument
+boxplot(minwage$fullAfter)
+```
+
+check if your assumptions about visualization is correct
+```{r}
+summary(minwage$fullAfter)
+```
+
+let's look at characteristics
+```{r}
+mean(minwage$fullAfter)
+median
+```
+
+create a baby dataset
+```{r}
+women <- runif(50, min= 37, max = 83)
+men <- runif(50, min = 10, max=40)
+kiwi <- cbind(women,men)
+kiwi <- as.data.frame(kiwi)
+#or
+kiwi_2 <- data.frame(women,men)
+identical(kiwi,kiwi_2)
+```
+
+explore your new baby data
+```{r}
+kiwi
+summary(kiwi)
+str(kiwi)
+head(kiwi)
+```
+
+visualize your new baby data
+```{r}
+plot(kiwi$men,type="l")
+points(kiwi$men)
+boxplot(kiwi$men)
+plot(kiwi$women)
+boxplot(kiwi$women)
+```
+
+create another babyset with column names
+```{r}
+women <- c(18,66,29,42)
+men <- c(34,97,108,12)
+kiwi <- rbind(women,men)
+kiwi <- as.data.frame(kiwi)
+colnames(kiwi) <- c("Monday","Tuesday","Wednesday","Saturday")
+kiwi
+```
+
+explore your new baby data
+```{r}
+str(kiwi)
+summary(kiwi)
+mean(kiwi$Tuesday)
+```
+
+visualize your new baby data (visualizing new kiwi data is not necessary)
+```{r}
+plot(kiwi$Monday)
+```
+
+create a vector with specific mean and sd (set seed for 200)
+```{r}
+set.seed(500)
+a <- rnorm(500,mean = 7, sd = 3)
+mean(a)
+a
+sd(a)
+median(a)
+class(a)
+summary(a)
+```
+
+visualize your vector
+```{r}
+boxplot(a) #normal distribution?
+plot(a,type = "l")
+points(a)
+```
+
+create a plot by using one of the variables from winwage. Assign axis names and color
+```{r}
+plot(minwage$fullBefore, type = "l", col = "blue", xlab = "time", ylab = "wage_after", main = "hello")
+```
+
+create a data frame by using runif() and visualize it with plot()
+```{r}
+tea <- runif(35, min = 70, max = 138)
+time <- 1:35
+tea_time <- data.frame(time,tea)
+plot(tea_time, type = "l", col = "blue", xlab = "time", ylab = "tea", main = "TEA TIME")
+points(tea_time)
+tea_time
+```
+
+create another dataset by using rnorm() and set seed for 150. Then visualize it with plot()
+```{r}
+set.seed(150)
+germs <- rnorm(47, mean = 3, sd = 7)
+time <- 10:56
+germs_time <- data.frame(time,germs)
+plot(germs_time, type = "l", col = "red", xlab = "time", ylab = "germs", main = "Germs Time")
+points(germs_time)
+boxplot(germs_time)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
