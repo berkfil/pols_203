@@ -1,0 +1,133 @@
+---
+title: "POLS_203_DS_6"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Random people walking around the campus were asked whether they prefer the old Star Wars movies or the new ones. Their answers are seen in the table below:
+    
+        Old ones    New ones
+Female  263         121
+Male    128         349
+
+1) Calculate the joint probabilities of women who like old Star Wars movies and men who like new Star Wars movies.
+```{r}
+#women who like old Star Wars movies
+women <- (263 + 121)/(263+121+128+349)
+old <- (263+128)/(263+121+128+349)
+women_old <- women*old
+
+men <- (128 + 349)/(263+121+128+349)
+new <- (121+349)/(263+121+128+349)
+men_new <- men*new
+```
+
+2) Let's assume that 2500 people were asked whether they think that government use provide free ice cream services every Sunday. Of those 2500 people 1789 said "YES" and 711 people said "No". Calculate the confidence interval for those who said "Yes" and "No". For the sake of simplicity take the 95% confidence level.
+```{r}
+# "Yes"
+pi_hat <- 1789/2500
+# se = sqrt of (pi times 1 minus pi divided by n)
+se <- sqrt((pi_hat*(1-pi_hat))/2500)
+CI <- c(pi_hat-(se*1.96),pi_hat+(se*1.96))
+
+#"No"
+pi_hat_2 <- 711/2500
+se <- sqrt((pi_hat_2*(1-pi_hat_2))/2500) # it is the same se but let's just calculate it anyways
+CI_2 <- c(pi_hat_2-(se*1.96),pi_hat_2+(se*1.96))
+```
+
+3) Create a random sample with 420 observations and a range of 61 and calculate the confidence interval (Assume that this is an approximatly normal distribution)
+```{r}
+random_sample <- runif(420, min = 41, max = 102)
+mu <- mean(random_sample)
+s <- sd(random_sample)
+se <- s/sqrt(420)
+CI <- c(mu - (se*1.96), mu + (se*1.96))
+```
+
+# an easy way to calculate se
+```{r}
+install.packages("plotrix")
+library(plotrix)
+se_2 <- std.error(random_sample)
+std.error(random_sample)
+identical(se_2,se)
+```
+
+3) A car company calculated its sales for the last 25 days. Their sales are,
+170 167 174 179 179 187 179 183 179 153 163 156 187 156 167 156 174 170 183 179 174 179 170 159 187
+
+a) Test the hypothesis that mean of all sales is greater than 170
+```{r}
+car_sales <- c(170,167,174,179,179,187,179,183,179,153,163,156,187,156,167,156,174,170,183,179,174,179,170,159,187)
+# HO --> mu = 170
+# Ha --> mu > 170 remember that H0 indicates a specific value and Ha indicates a range of values
+se_car <- sd(car_sales)/sqrt(25)
+test <- (mean(car_sales)-170)/se_car
+# corresponding p value is 0.11 (we are doing a one sided test possible means are greater than 170)
+# we fail to reject the H0 on the significance level of 0.05 because 0.11 is greater than 0.05
+```
+
+4) People in Florida where asked whether the government should do something about the increasing rates of shark attacks. Out of 1500 people, 52% of people said "Yes" and 48% said "No". Find out that if the population wants government action.
+```{r}
+# Our population proportion is pi that would support a government action. If pi < 0.5 we say that people would not support a government action. If pi > 50, people will support a government action. So our hypothesis is,
+# HO = pi = .5
+# Ha = pi ≠ .5 , pi < .5 or pi > .5
+se_pi <- sqrt((0.5*(1-0.5))/1500)
+# Remember t statistic for proportion is (pi hat minus pi) divided by se
+z_test_pi <- (0.52-0.50)/se_pi
+#our z score is 1.5 and the the p value that corresponds to this z score is 0.12 (two tailed). So we fail to reject the H0 and indicate that we cannot know whether people will be supportive of such a government action
+```
+
+5) Considering the first example, test the hypothesis that men like new Star Wars movies more than women. For this, you need to build o confidence interval. This was our table:
+
+        Old ones    New ones
+Female  263         121
+Male    128         349
+```{r}
+# H0 = men who like new ones <= women who like new ones
+# Ha = men who like new ones > women who like new ones
+men_1 <- (128+349)/(263+121+128+349)
+new_1 <- (121+349)/(263+121+128+349)
+pi_1 <- men_1*new_1
+
+women_1 <- (263+121)/(263+121+128+349)
+new_1
+pi_2 <- women_1*new_1
+#sample size
+nb_men <- 128+349
+nb_women <- 263+121
+# Calculate the se
+se <- sqrt(((pi_1*(1-pi_1))/nb_men)+((pi_2*(1-pi_2))/nb_women))
+# Calculate the CI
+CI_new <- c(((pi_1-pi_2)-se*1.96),((pi_1-pi_2)+se*1.96))
+#from this result we can say that we fail to reject our hypothesis H0
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+---
+title: "POLS_203_DS_6_Blank"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Random people walking around the campus were asked whether they prefer the old Star Wars movies or the new ones. Their answers are seen in the table below:
+    
+        Old ones    New ones
+Female  263         121
+Male    128         349
+
+1) Calculate the joint probabilities of women who like old Star Wars movies and men who like new Star Wars movies.
+```{r}
+
+```
+
+2) Let's assume that 2500 people were asked whether they think that government use provide free ice cream services every Sunday. Of those 2500 people 1789 said "YES" and 711 people said "No". Calculate the confidence interval for those who said "Yes" and "No". For the sake of simplicity take the 95% confidence level.
+```{r}
+
+```
+
+3) Create a random sample with 420 observations and a range of 61 and calculate the confidence interval (Assume that this is an approximatly normal distribution)
+```{r}
+
+```
+
+3) A car company calculated its sales for the last 25 days. Their sales are,
+170 167 174 179 179 187 179 183 179 153 163 156 187 156 167 156 174 170 183 179 174 179 170 159 187
+
+a) Test the hypothesis that mean of all sales is greater than 170
+```{r}
+
+```
+
+4) People in Florida where asked whether the government should do something about the increasing rates of shark attacks. Out of 1500 people, 57% of people said "Yes" and 43% said "No". Find out that if the population wants government action.
+```{r}
+
+```
+
+5) Considering the first example, test the hypothesis that men like new Star Wars movies more than women. For this, you need to build o confidence interval. This was our table:
+
+        Old ones    New ones
+Female  263         121
+Male    128         349
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
